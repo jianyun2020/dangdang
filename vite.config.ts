@@ -28,10 +28,15 @@ export default defineConfig((mode) => {
         }
       }
     }
-    console.log('我是开发者环境：', server)
   } else if (mode.mode === 'production') {
-    console.log('我是生产环境')
+    server = {
+      port: Number(envMap.VITE_PORT),
+      host: envMap.VITE_HOST
+    }
   }
+  console.log('环境：', server)
+
+
 
   return {
     plugins: [vue()],
